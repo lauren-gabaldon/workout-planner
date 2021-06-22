@@ -1,7 +1,19 @@
 const router = require("express").Router();
 
 const db = require("../models");
-//add one exercise
+
+//most recent workout
+router.get("/api/workouts", (req, res) => {
+  db.Workout.aggregate()
+    .addFields({ totalDuration: { $sum: "$Exercises.duration" } })
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+//add an exercise
 router.put("/api/workouts/:id", (req, res) => {
   db.Workout.findbyIdAndUpdate(
     req.params.id,

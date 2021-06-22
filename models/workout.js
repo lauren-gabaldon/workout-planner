@@ -8,9 +8,9 @@ const WorkoutSchema = new Schema({
       type: { type: "string" },
       name: String,
       duration: Number,
-      weight: Number,
-      reps: Number,
-      sets: Number,
+      weight: { type: Number, default: 0 },
+      reps: { type: Number, default: 0 },
+      sets: { type: Number, default: 0 },
     },
   ],
 });
