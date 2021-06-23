@@ -10,6 +10,7 @@ const ExerciseSchema = new Schema({
   sets: Number,
 });
 
-const Exercise = mongoose.model("Exercise", ExerciseSchema);
+const exercise = mongoose.model("exercise", ExerciseSchema);
 
-module.exports = Exercise;
+module.exports = exercise;
+//comment
